@@ -1008,8 +1008,9 @@ class Component extends DCLogic {
     if(s.screen==='player'){
       if(L) this.set({pbtn:Math.max(0,s.pbtn-1)});
       if(R) this.set({pbtn:Math.min(3,s.pbtn+1)});
+      if(s.bedOn){ if(OK||B) this.stopBed(); return; }
       if(OK) this.playerAction(s.pbtn);
-      if(B){ if(s.bedOn) this.stopBed(); else this.playerAction(3); }
+      if(B) this.playerAction(3);
       return;
     }
     if(s.screen==='adultos'){
